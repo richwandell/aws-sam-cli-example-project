@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Weather Forecast app Darksky
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  WeatherForcast:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: api/
+      Handler: app.weatherHandler
+      Runtime: nodejs12.x
+      Events:
+        GetWeather:
+          Type: Api
+          Properties:
+            Path: /at
+            Method: get
+
+Outputs:
+  WeatherForcastApi:
+    Description: "API Gateway endpoint URL for Prod stage for Weather Forcast function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/weather/"
+  WeatherForcastFunction:
+    Description: "Weather Lambda Function ARN"
+    Value: !GetAtt WeatherForcast.Arn
+  WeatherForcastFunctionIamRole:
+    Description: "Implicit IAM Role created for Weather function"
+    Value: !GetAtt WeatherForcastRole.Arn

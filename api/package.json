@@ -1,0 +1,22 @@
+{
+  "name": "aws-sam-cli-example-project",
+  "version": "1.0.0",
+  "description": "Open Geocoding MapQuest and Darksky",
+  "main": "app.js",
+  "repository": "https://github.com/richwandell/aws-sam-cli-example-project",
+  "author": "Rich Wandell",
+  "license": "MIT",
+  "dependencies": {
+    "ask-sdk-core": "^2.6.0",
+    "ask-sdk-model": "^1.18.0",
+    "aws-sdk": "^2.326.0",
+    "axios": "^0.18.0"
+  },
+  "scripts": {
+    "test": "mocha tests/unit/"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}

@@ -1,0 +1,5 @@
+api/config.json
+.idea
+.aws-sam
+node_modules
+samconfig.toml
